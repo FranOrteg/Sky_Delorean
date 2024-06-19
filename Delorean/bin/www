@@ -8,6 +8,12 @@ var app = require('../app');
 var debug = require('debug')('delorean:server');
 var http = require('http');
 
+//.env
+require('dotenv').config();
+
+//mysql
+require('../config/db');
+
 /**
  * Get port from environment and store in Express.
  */
