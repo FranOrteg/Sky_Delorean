@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const usersContainer = document.getElementById('users-container');
             users.forEach(user => {
                 const userDiv = document.createElement('div');
-                userDiv.textContent = `ID: ${user.contact_id}, Name: ${user.Name}`;
+                userDiv.textContent = `ID: ${user.contact_id}, Name: ${user.Name}, Email: ${user.Email} `;
                 usersContainer.appendChild(userDiv);
             });
         })
