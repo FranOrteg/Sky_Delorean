@@ -8,6 +8,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1{
+  padding: 50px;
+}
+
 .data-user {
   display: flex;
   justify-content: center;
@@ -17,11 +21,26 @@ body {
 }
 
 .startEndDay{
-  padding-left: 100px;
-
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .startEndDay label{
   display: block;
   padding-bottom: 15px;
+}
+
+.startEndDayTable {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table{
+  border: 1px solid gray;
+  border-radius: 30px;
 }
