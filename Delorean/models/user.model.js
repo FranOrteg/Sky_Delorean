@@ -12,8 +12,13 @@ const updateStartEndDay = (id, StartDate, EndDate) => {
     return db.query('UPDATE labit_skylabdb1.startEndDay SET start = ?, end = ? WHERE id = ?', [StartDate, EndDate, id]);
 };
 
+const insertStartEndDay = (start, end, userID) => {
+    return db.query('INSERT INTO labit_skylabdb1.startEndDay (start, end, user_id) VALUES (?, ?, ?)', [start, end, userID]);
+}
+
 module.exports = {
     getUsers,
     getStartEndDayData,
-    updateStartEndDay
+    updateStartEndDay,
+    insertStartEndDay
 };

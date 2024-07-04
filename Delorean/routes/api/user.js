@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getUsers, getStartEndDayData, updateStartEndDay } = require('../../models/user.model');
+const { getUsers, getStartEndDayData, updateStartEndDay, insertStartEndDay } = require('../../models/user.model');
 
 // GET USER
 
@@ -32,6 +32,17 @@ router.put('/startEndDay', async (req, res) => {
         res.json(response);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while updating user data' });
+    }
+});
+
+// INSERT START END DAY
+router.post('/startEndDay', async (req, res) => {
+    try {
+        const { start, end, userId } = req.body;
+        const [response] = await insertStartEndDay(start, end, userId);
+        res.json(response);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while inserting user data' });
     }
 });
 

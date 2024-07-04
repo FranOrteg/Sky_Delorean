@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching users:', error);
     }
     document.querySelector('.btn-warning').addEventListener('click', handleSaveButtonClick);
+    document.querySelector('.insert').addEventListener('click', handleInsertButtonClick);
 });
 
 async function fetchUsers() {
@@ -24,7 +25,6 @@ async function fetchUserData(userId) {
     }
     return response.json();
 }
-
 
 function populateUserSelect(users) {
     const userSelect = document.getElementById('user-select');
@@ -65,42 +65,6 @@ function formatDateTime(input){
     const dateformatted = `${year}-${month}-${day} ${hour}:${min}:${sec}`
 
     return dateformatted
-}
-
-function handleSaveButtonClick() {
-    const selectedRow = document.querySelector('input[name="selected-row"]:checked');
-    if (!selectedRow) {
-        alert('Please select a row to save.');
-        return;
-    }
-
-    const rowId = selectedRow.value;
-    const startInput = document.querySelector(`input[data-id="${rowId}"][data-field="start"]`).value;
-    const endInput = document.querySelector(`input[data-id="${rowId}"][data-field="end"]`).value;
-
-    const updatedData = {
-        id: rowId,
-        start: formatDateTime(startInput),
-        end: endInput !== 'N/A' ? formatDateTime(endInput) : null,
-    };
-
-    updateUserData(updatedData);
-}
-
-async function updateUserData(data) {
-    const response = await fetch('/api/user/startEndDay', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-        alert('User data updated successfully');
-    } else {
-        alert('Failed to update user data');
-    }
 }
 
 function createUserTable(data) {
@@ -145,7 +109,94 @@ function createUserTable(data) {
 
         tableBody.appendChild(tableRow);
     });
+};
+
+function handleSaveButtonClick() {
+    const selectedRow = document.querySelector('input[name="selected-row"]:checked');
+    if (!selectedRow) {
+        alert('Please select a row to save.');
+        return;
+    }
+
+    const rowId = selectedRow.value;
+    const startInput = document.querySelector(`input[data-id="${rowId}"][data-field="start"]`).value;
+    const endInput = document.querySelector(`input[data-id="${rowId}"][data-field="end"]`).value;
+
+    const updatedData = {
+        id: rowId,
+        start: formatDateTime(startInput),
+        end: endInput !== 'N/A' ? formatDateTime(endInput) : null,
+    };
+
+    updateUserData(updatedData);
 }
+
+async function updateUserData(data) {
+    const response = await fetch('/api/user/startEndDay', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+        alert('User data updated successfully');
+        window.location.reload();
+    } else {
+        alert('Failed to update user data');
+    }
+}
+
+
+function handleInsertButtonClick() {
+    const start = document.getElementById('start-input').value;
+    const end = document.getElementById('end-input').value;
+    const userSelect = document.getElementById('user-select');
+
+    if (!userSelect.value || userSelect.value === 'Users') {
+        alert('Please select a user.');
+        return;
+    }
+
+    if (!start) {
+        alert('Please enter a start date.');
+        return;
+    }
+
+    if (!end) {
+        alert('Please enter an end date.');
+        return;
+    }
+
+    const insertData = {
+        start: start,
+        end: end !== 'N/A' ? end : null,
+        userId: userSelect.value,
+    };
+
+    insertNewData(insertData);
+}
+
+async function insertNewData(data) {
+    const response = await fetch('/api/user/startEndDay', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+        alert('User data inserted successfully');
+        document.getElementById('start-input').value = '';
+        document.getElementById('end-input').value = '';
+        window.location.reload();
+    } else {
+        alert('Failed to insert user data');
+    }
+}
+
 
 
 

@@ -18,3 +18,13 @@ Content-Type: application/json
     "end": "2024-07-04 18:29:57"
 }
 
+
+### INSERT DATA
+POST {{host}}{{urlUsers}}/startEndDay
+Content-Type: application/json
+
+{
+    "start": "2024-07-05 09:09:57",
+    "end": "2024-07-05 18:29:57",
+    "user_id": 599
+}
