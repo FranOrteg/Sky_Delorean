@@ -44,3 +44,7 @@ h1{
   border: 1px solid gray;
   border-radius: 30px;
 }
+
+.buttons{
+  padding: 50px;
+}

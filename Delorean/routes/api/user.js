@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getUsers, getStartEndDay } = require('../../models/user.model');
+const { getUsers, getStartEndDayData, updateStartEndDay } = require('../../models/user.model');
 
 // GET USER
 
@@ -14,13 +14,24 @@ router.get('/', async (req, res) => {
 });
 
 // GET USER BY ID
-router.get('/:Id', async (req, res) => {
-    const { Id } = req.params
+router.get('/:userId', async (req, res) => {
     try {
-        const [user] = await getStartEndDay(Id)
-        res.json(user)
+        const userId = req.params.userId;
+        const [data] = await getStartEndDayData(userId);
+        res.json(data);
     } catch (error) {
-        res.json({ fatal: error.message })
+        res.status(500).json({ error: 'An error occurred while fetching user data' });
+    }
+});
+
+// UPDATE USER DATA
+router.put('/startEndDay', async (req, res) => {
+    try {
+        const { id, start, end } = req.body;
+        const [response] = await updateStartEndDay(id, start, end);
+        res.json(response);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while updating user data' });
     }
 });
 

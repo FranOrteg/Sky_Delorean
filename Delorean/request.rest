@@ -7,3 +7,14 @@
 
 ### GET ALL USERS
 GET {{host}}{{urlUsers}}
+
+### GET DATA USER BY ID
+PUT {{host}}{{urlUsers}}/startEndDay
+Content-Type: application/json
+
+{
+    "id": 11406,
+    "start": "2024-07-04 09:09:57",
+    "end": "2024-07-04 18:29:57"
+}
+
