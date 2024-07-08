@@ -75,3 +75,12 @@ h1{
   font-style: normal;
 }
 
+#user-select, #start-input, #end-input{
+  border-radius: 15px;
+}
+
+#start, #end {
+  margin-right: 1em;
+  border-radius: 15px;
+  background-color: rgb(192, 192, 192);
+}
