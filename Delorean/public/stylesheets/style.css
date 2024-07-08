@@ -51,3 +51,19 @@ h1{
   gap: 1em;
 }
 
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image{
+  width: 300px;
+  height: auto;
+}
+
+.delorean {
+  width: 300px;
+  height: auto;
+  padding-bottom: 50px;
+}
