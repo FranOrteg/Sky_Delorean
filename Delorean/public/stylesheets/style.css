@@ -58,12 +58,20 @@ h1{
 }
 
 .image{
-  width: 300px;
+  width: 200px;
   height: auto;
 }
 
 .delorean {
-  width: 300px;
+  width: 200px;
   height: auto;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
+
+.orbitron-title {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
