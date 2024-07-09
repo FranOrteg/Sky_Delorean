@@ -8,6 +8,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     document.querySelector('.btn-warning').addEventListener('click', handleSaveButtonClick);
     document.querySelector('.insert').addEventListener('click', handleInsertButtonClick);
+
+
+     // Video modal handling
+     var video = document.getElementById('modalVideo');
+     var exampleModal = document.getElementById('jokeModal');
+ 
+     exampleModal.addEventListener('shown.bs.modal', function () {
+         video.play();
+     });
+ 
+     exampleModal.addEventListener('hidden.bs.modal', function () {
+         video.pause();
+         video.currentTime = 0;  // Reset video to the beginning
+     });
 });
 
 async function fetchUsers() {
@@ -196,7 +210,6 @@ async function insertNewData(data) {
         alert('Failed to insert user data');
     }
 }
-
 
 
 

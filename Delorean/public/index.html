@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/ico" href="./images/cable_car_electronics_skiing_cable_car_transport_icon_133086.ico">
 </head>
 
 <body>
@@ -45,10 +45,26 @@
     </div>
 
     <div class="buttons">
-      <button type="button" class="btn btn-warning">Update</button>
-      <button type="button" class="btn btn-warning insert">Insert</button>
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#jokeModal">Update</button>
+      <button type="button" class="btn btn-warning insert" data-bs-toggle="modal" data-bs-target="#jokeModal">Insert</button>
     </div>
 
+    <div class="modal fade" id="jokeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">I'm Watching You</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="video">
+              <video id="modalVideo" src="./images/watchingYou.mp4" width="100%" loop></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="startEndDayTable">
       <table class="table">
         <thead>
