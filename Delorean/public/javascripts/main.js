@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', async () => {
  
      exampleModal.addEventListener('hidden.bs.modal', function () {
          video.pause();
-         video.currentTime = 0;  // Reset video to the beginning
+         video.currentTime = 0; 
+         window.location.reload();
      });
 });
 
@@ -156,7 +157,6 @@ async function updateUserData(data) {
 
     if (response.ok) {
         alert('User data updated successfully');
-        window.location.reload();
     } else {
         alert('Failed to update user data');
     }
@@ -205,7 +205,6 @@ async function insertNewData(data) {
         alert('User data inserted successfully');
         document.getElementById('start-input').value = '';
         document.getElementById('end-input').value = '';
-        window.location.reload();
     } else {
         alert('Failed to insert user data');
     }

@@ -7,6 +7,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(173, 173, 173) !important;
+  height: 100vh;
 }
 
 h1{
@@ -111,4 +112,18 @@ h1{
 
 .btn-close{
   padding-right: 4em !important;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5em;
+  padding-bottom: 3em;
+}
+
+
+.hand {
+  width: 70px;
+  height: auto;
 }
