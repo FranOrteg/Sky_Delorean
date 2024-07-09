@@ -19,6 +19,8 @@ Just Fork Delorean.
 
 @FranOrteg
 
+PS: No PR's or issues will be accepted for this project.
+
 # Disclaimer
 
 I am not responsible for the use of this project. 😇 
