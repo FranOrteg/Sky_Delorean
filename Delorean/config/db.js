@@ -32,7 +32,12 @@ tunnel(config, (error, server) => {
     } else {
         const pool = mysql.createPool(poolConfig);
         global.db = pool.promise();
-        console.log('Connected to the database through SSH tunnel');
+
+        console.log('');
+        console.log('Connected to the database Mother Fucker');
+        console.log('***************************************');
+        console.log('-------     LOCALHOST:3000      -------');
+        console.log('***************************************');
     }
 });
 
